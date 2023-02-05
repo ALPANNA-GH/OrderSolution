@@ -1,0 +1,29 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    background-color:whitesmoke;
+    margin-bottom: 60px;
+}
+a{
+    text-decoration:none;
+}
+table a, .aDeco {
+    border-color: darkred;
+    border-radius: 25px;
+    border-style: solid;
+    padding: 2px 15px;
+    color: darkred;
+}
