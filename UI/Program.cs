@@ -1,6 +1,8 @@
 
+using Domain.InterGen;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Repos.RepoMain;
 using UI.Data;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +15,8 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddTransient<ApplicationDbContext, ApplicationDbContext>();
+builder.Services.AddTransient(typeof(IBaseRepo<>), typeof(BaseRepo<>));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
