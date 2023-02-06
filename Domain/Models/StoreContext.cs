@@ -1,13 +1,11 @@
-﻿using Domain.Models;
-using Domain;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace Domain.Models
 {
     public class StoreContext : DbContext
     {
@@ -15,7 +13,7 @@ namespace Domain
         {
 
         }
-        public DbSet<OrderHead> OrderHeads { get; set; }
-        public DbSet<OrderDet> OrderDets { get; set; }
+        public DbSet<OrderHead> OrderHead { get; set; }
+        public DbSet<OrderDet> OrderDet { get; set; }
     }
 }
