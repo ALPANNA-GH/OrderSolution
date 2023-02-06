@@ -39,17 +39,16 @@ Layout = "_Layout";
                 <label asp-for="Date" class="control-label"></label>
                 <input asp-for="Date" class="form-control" />
                 <span asp-validation-for="Date" class="text-danger"></span>
-            </div>
+            </div><br />
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                    <input type="submit" value="Save" class="btn btn-danger" />
+                    <a class="btn btn-danger" asp-action="Index">Back to List</a>
+
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a class="aDeco" asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -24,6 +24,7 @@ table a, .aDeco {
     border-color: darkred;
     border-radius: 25px;
     border-style: solid;
+    margin:5px;
     padding: 2px 15px;
     color: darkred;
 }
