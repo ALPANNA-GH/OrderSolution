@@ -2,9 +2,14 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
+<select onchange="this.form.submit()">
+    <option name="opt" value="en"><a href="#">en</a></option>
+    <option name="opt" value="ar"><a href="#">ar</a></option>
+</select>
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
+       
     <li class="nav-item">
         <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
     </li>
