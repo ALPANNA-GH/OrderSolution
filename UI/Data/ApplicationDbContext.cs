@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using UI.Data;
 
 namespace UI.Data
 {
@@ -9,5 +10,6 @@ namespace UI.Data
             : base(options)
         {
         }
+        public DbSet<Domain.Models.OrderHead> OrderHead { get; set; } = default!;
     }
 }
