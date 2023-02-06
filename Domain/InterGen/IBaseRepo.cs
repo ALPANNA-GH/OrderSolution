@@ -8,11 +8,10 @@ namespace Domain.InterGen
 {
     public interface IBaseRepo<T> where T : class 
     {
-        public T Get(int id);
-        public IEnumerable<T> GetAllOrder();
-        public T Add(T item);
-        public T Delete(T item) ;
-        public T update(int id);
-        public T find(int id);
+        public T Get(int ordId);
+        public T Add(T ord);
+        public T Delete(T ord);
+        public T Edit(T ord);
+        public IEnumerable<T> findAll();
     }
 }

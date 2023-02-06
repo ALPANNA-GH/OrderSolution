@@ -1,5 +1,8 @@
 
 using Domain.InterGen;
+using Domain.Models;
+using Repos;
+using Domain;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Repos.RepoMain;

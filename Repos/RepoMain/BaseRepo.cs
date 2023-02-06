@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography;
 
 namespace Repos.RepoMain
 {
@@ -17,32 +18,33 @@ namespace Repos.RepoMain
             _context = context;
         }
 
-        public T Get(int ordid)
+        public T Get(int OrdId)
         {
             throw new NotImplementedException();
         }
-        public AddOrd(int ordid)
+        public T Add(T ord)
         {
-            _context.Add(ordid);
+            _context.Set<T>().Add(ord);
             _context.SaveChanges();
+            return ord;
         }
 
-        public void EditOrd(int ordid) => _context.Entry(id).Entity.;
-        }
-
-        public void Remove(int ordid)
+        public T Edit (T ord)
         {
-            _context.Remove(ordid);
+            _context.Set<T>().Update(ord);
             _context.SaveChanges();
+            return ord;
         }
 
 
-    public IEnumerable<T> GetAllOrder()
-    {
-        return _context.Set<T>();
-    }
+        public T Delete(T ord)
+        {
+            _context.Set<T>().Remove(ord);
+            _context.SaveChanges();
+            return ord;
+        }
+        public IEnumerable<T> findAll() => _context.Set<T>();
 
-    public T FindById(int ID) => _context.Set<T>().Find(ID);
-        
     }
 }
+
