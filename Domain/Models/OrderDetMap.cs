@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace Domain.Models
 {
@@ -19,6 +19,7 @@ namespace Domain.Models
             entityBuilder.Property(e => e.Quantity).IsRequired();
             entityBuilder.Property(e => e.Price).IsRequired();
             entityBuilder.Property(e => e.Total).IsRequired();
+            entityBuilder.ToTable("OrderDet");
             entityBuilder.HasOne(e => e.OrderHead)
                 .WithMany(e => e.OrderDet).HasForeignKey(e => e.OrderId);
 

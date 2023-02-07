@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Domain.Models;
 using Repos.RepoMain;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UI.Controllers
 {
@@ -56,6 +57,7 @@ namespace UI.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("Id,CustomerName,Address,PhonNum,Date")] OrderHead orderHead)
         {
             if (ModelState.IsValid)
@@ -68,6 +70,7 @@ namespace UI.Controllers
         }
 
         // GET: OrderHeads/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.OrderHead == null)
@@ -83,9 +86,7 @@ namespace UI.Controllers
             return View(orderHead);
         }
 
-        // POST: OrderHeads/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,CustomerName,Address,PhonNum,Date")] OrderHead orderHead)
@@ -119,6 +120,7 @@ namespace UI.Controllers
         }
 
         // GET: OrderHeads/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.OrderHead == null)

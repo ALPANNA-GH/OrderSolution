@@ -11,17 +11,26 @@ namespace Domain.Models
 {
     public class OrderDet
     {
+        [DisplayName("Item Number")]
         [Required]
+        [Range(100,100000, ErrorMessage ="")]
         public int Id { get; set; }
         [Required]
+        [DisplayName("Order Number")]
+        [Range(100, 100000, ErrorMessage = "")]
         public int OrderId { get; set; }
-        [Required,MaxLength(50)]
+        [Required(ErrorMessage ="Item discreption is required")]
+        [DisplayName("Item Discreption")]
         public string? ItemDsc { get; set; }
-        [Required, DefaultValue(1)]
+        [Required(ErrorMessage = "Quantity is required")]
+        [DisplayName("Quantity")]
+        [DefaultValue(1)]
         public int Quantity { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Price is required")]
+        [DisplayName("Price")]        
         public float Price { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Total is required")]
+        [DisplayName("Total")] 
         public float Total { get; set; }
         public OrderHead? OrderHead { get; set; }
     }

@@ -13,13 +13,20 @@ namespace Domain.Models
     {
         [Required]
         public int Id { get; set; }
-        [Required, MaxLength(50)]
+        [Required(ErrorMessage = "Customer Name is required")]
+        [DisplayName("Customer Name")]
+        [MaxLength(25)]
         public string? CustomerName { get; set; }
-        [Required, MaxLength(150)]
+        [DisplayName("Address")]
+        [MaxLength(150)]
         public string? Address { get; set; }
+        [DisplayName("Phon Number")]
         [MaxLength(15)]
         public string? PhonNum { get; set; }
-        [Required]
+        [DisplayName("Date")]
+        [MaxLength(15)]
+        [DataType(DataType.Date)]
+        [Required(ErrorMessage = "Date is required")]
         public DateTime Date { get; set; }
         public ICollection<OrderDet>? OrderDet { get; set; }
     }

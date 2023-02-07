@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore;
 
 namespace Domain.Models
 {
@@ -17,6 +18,8 @@ namespace Domain.Models
             entityBuilder.Property(o => o.Address);
             entityBuilder.Property(o => o.PhonNum);
             entityBuilder.Property(o => o.Date).IsRequired();
+            entityBuilder.ToTable("OrderHead");
+
         }
     }
 }
